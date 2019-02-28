@@ -476,7 +476,6 @@ static inline uint64_t rf_rotl64(uint64_t v, uint8_t bits) {
 	bits&=63;
 #endif
 	return (v << bits) | (v >> (64 - bits));
-	// return (v << bits) | (v >> bits);
 }
 
 // Rotate right vector _v_ by _bits_ bits
@@ -781,9 +780,6 @@ static void rf256_final(void *out, rf256_ctx_t *ctx) {
 
 void RainforestHash(const void *input, void *output, int length)
 {
-	// uint64_t x = 7921874864975878151;
-	// uint8_t y = 0;
-	// printf("%" PRIu64 "\n", rotl64(x, y));
     rf256_ctx_t ctx;
     rf256_init(&ctx);
     rf256_update(&ctx, input, length);
